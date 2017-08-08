@@ -32,6 +32,7 @@ public class IndexLayout extends FrameLayout {
     private String indexName = "";
     private IndexBar indexBar;
     private int indexBarWidth = dp2px(30);
+    private float indexBarHeightRatio = 1;
 
     public IndexLayout(Context context) {
         this(context, null);
@@ -108,7 +109,9 @@ public class IndexLayout extends FrameLayout {
         if (childNum < 1) return;
 
         View childView = getChildAt(0);
-        childView.layout(getWidth() - indexBarWidth, 0, getWidth(), getHeight());//放在最右边
+        float topPadding = (1 - indexBarHeightRatio) / 2;
+        childView.layout(getWidth() - indexBarWidth, (int) (getHeight() * topPadding), getWidth(), (int) (getHeight() * (topPadding + indexBarHeightRatio)))
+        ;//放在最右边
     }
 
     /**
@@ -190,6 +193,13 @@ public class IndexLayout extends FrameLayout {
      */
     public void setDrawByTouch(boolean drawByTouch) {
         isDrawByTouch = drawByTouch;
+    }
+
+    /**
+     * indexBar 高度占父容器的比率，默认1
+     */
+    public void setIndexBarHeightRatio(float indexBarHeightRatio) {
+        this.indexBarHeightRatio = indexBarHeightRatio;
     }
 
     public IndexBar getIndexBar() {

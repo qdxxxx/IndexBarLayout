@@ -17,9 +17,10 @@ public class IndexBar extends View {
     private int textSpan;//每个index占据空间
     private indexChangeListener listener;
     private List<String> indexsList;
-    private int textSize = 50;
+    private int textSize = 40;
     private int selTextColor = Color.BLACK;
     private int norTextColor = Color.GRAY;
+    private float yAxis;//文字y轴方向的基线
 
     public IndexBar(Context context) {
         this(context, null);
@@ -39,18 +40,22 @@ public class IndexBar extends View {
         mPaint.setColor(norTextColor);
         mPaint.setTextSize(textSize);
         mPaint.setTextAlign(Paint.Align.CENTER);
+
+        Paint.FontMetrics fontMetrics = mPaint.getFontMetrics();
+        float total = -fontMetrics.ascent + fontMetrics.descent;
+        yAxis = total / 2 - fontMetrics.descent;
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        textSpan = (h * 4 / 5) / indexsList.size();//上下各距离1/10 h
+        textSpan = h / (indexsList.size() + 1);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         for (int i = 0; i < indexsList.size(); i++) {
-            canvas.drawText(indexsList.get(i), getWidth() / 2, textSpan * (i + 1), mPaint);
+            canvas.drawText(indexsList.get(i), getWidth() / 2, textSpan * (i + 1) + yAxis, mPaint);
         }
     }
 
