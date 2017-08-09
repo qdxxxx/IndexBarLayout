@@ -11,9 +11,9 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import qdx.indexbarlayout.datas.Car;
-import qdx.indexbarlayout.datas.CarsList;
+import qdx.indexbarlayout.datas.CarBean;
 import qdx.indexbarlayout.datas.RecCarAdapter;
+import qdx.indexbarlayout.datas.Utils;
 import qdx.stickyheaderdecoration.NormalDecoration;
 
 
@@ -27,26 +27,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_layout);
         ButterKnife.bind(this);
 
-        final List<Car> carList = CarsList.getCars();
+        CarBean carBean = new Utils().readFromAssets(MainActivity.this);
+        final List<CarBean.CarInfo> carList = carBean.getData();
 
-        final RecCarAdapter adapter = new RecCarAdapter(this);
+
+        RecCarAdapter adapter = new RecCarAdapter(this);
         adapter.addDatas(carList);
-
 
         final NormalDecoration decoration = new NormalDecoration() {
             @Override
             public String getHeaderName(int pos) {
-                return carList.get(pos).getHeaderName();
+                return carList.get(pos).getInitial();
             }
         };
 
         decoration.setOnHeaderClickListener(new NormalDecoration.OnHeaderClickListener() {
             @Override
             public void headerClick(int pos) {
-                Toast.makeText(MainActivity.this, "点击到头部" + carList.get(pos).getHeaderName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "点击到头部" + carList.get(pos).getInitial(), Toast.LENGTH_SHORT).show();
             }
         });
-
 
         final LinearLayoutManager manager = new LinearLayoutManager(this);
         mRecyclerView.addItemDecoration(decoration);
@@ -57,9 +57,9 @@ public class MainActivity extends AppCompatActivity {
         //侧边导航栏
         IndexLayout indexLayout = (IndexLayout) findViewById(R.id.index_layout);
         List<String> heads = new ArrayList<>();
-        for (Car car : carList) {
-            if (!heads.contains(car.getHeaderName())) {
-                heads.add(car.getHeaderName());
+        for (CarBean.CarInfo car : carList) {
+            if (!heads.contains(car.getInitial())) {
+                heads.add(car.getInitial());
             }
         }
         indexLayout.setIndexBarHeightRatio(0.9f);
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void indexChanged(String indexName) {
                 for (int i = 0; i < carList.size(); i++) {
-                    if (indexName.equals(carList.get(i).getHeaderName())) {
+                    if (indexName.equals(carList.get(i).getInitial())) {
                         manager.scrollToPositionWithOffset(i, 0);
                         return;
                     }
@@ -76,5 +76,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 }

@@ -21,7 +21,7 @@ import qdx.indexbarlayout.R;
 
 public class RecCarAdapter extends RecyclerView.Adapter<RecCarAdapter.Holder> {
 
-    private List<Car> mList;
+    private List<CarBean.CarInfo> mList;
 
     private Activity mActivity;
 
@@ -30,7 +30,7 @@ public class RecCarAdapter extends RecyclerView.Adapter<RecCarAdapter.Holder> {
         mActivity = activity;
     }
 
-    public void addDatas(List<Car> data) {
+    public void addDatas(List<CarBean.CarInfo> data) {
         this.mList.clear();
         this.mList.addAll(data);
         notifyDataSetChanged();
@@ -44,10 +44,10 @@ public class RecCarAdapter extends RecyclerView.Adapter<RecCarAdapter.Holder> {
 
     @Override
     public void onBindViewHolder(Holder holder, int position) {
-        Car car = mList.get(position);
+        CarBean.CarInfo car = mList.get(position);
 
         holder.tv_name.setText(car.getName());
-        Glide.with(mActivity).load(car.getLogo()).into(holder.iv_logo);
+        Glide.with(mActivity).load(car.getLogoUrl()).into(holder.iv_logo);
     }
 
 
