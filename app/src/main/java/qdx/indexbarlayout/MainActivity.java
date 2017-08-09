@@ -48,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        decoration.setHeaderHeight(70);
-        decoration.setTextSize(30);
         final LinearLayoutManager manager = new LinearLayoutManager(this);
         mRecyclerView.addItemDecoration(decoration);
         mRecyclerView.setLayoutManager(manager);
@@ -78,6 +76,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        indexLayout.getIndexBar().setIndexTextSize(20);
     }
 }
