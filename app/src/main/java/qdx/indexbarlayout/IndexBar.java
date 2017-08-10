@@ -15,7 +15,7 @@ import java.util.List;
 public class IndexBar extends View {
     private Paint mPaint;
     private int textSpan;//每个index占据空间
-    private indexChangeListener listener;
+    private IndexChangeListener listener;
     private List<String> indexsList;
     private int textSize = 40;
     private int selTextColor = Color.BLACK;
@@ -91,7 +91,7 @@ public class IndexBar extends View {
     }
 
 
-    public interface indexChangeListener {
+    public interface IndexChangeListener {
         void indexChanged(String indexName);
     }
 
@@ -99,7 +99,7 @@ public class IndexBar extends View {
         this.indexsList = indexs;
     }
 
-    public void setIndexChangeListener(indexChangeListener listener) {
+    public void setIndexChangeListener(IndexChangeListener listener) {
         this.listener = listener;
     }
 
@@ -114,5 +114,6 @@ public class IndexBar extends View {
 
     public void setNorTextColor(int norTextColor) {
         this.norTextColor = norTextColor;
+        mPaint.setColor(norTextColor);
     }
 }

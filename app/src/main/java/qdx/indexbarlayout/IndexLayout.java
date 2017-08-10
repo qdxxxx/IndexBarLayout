@@ -206,7 +206,7 @@ public class IndexLayout extends FrameLayout {
         return indexBar;
     }
 
-    public int dp2px(float dp) {
+    private int dp2px(float dp) {
         final float scale = getResources().getDisplayMetrics().density;
         return (int) (dp * scale + 0.5f);
     }
