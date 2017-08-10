@@ -25,7 +25,7 @@
 ```
 ```
 	dependencies {
- 	   compile 'com.github.qdxxxx:IndexBarLayout:v1.0.0'
+ 	   compile 'com.github.qdxxxx:IndexBarLayout:1.0.1'
 	}
 ```
 
