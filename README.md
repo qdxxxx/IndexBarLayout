@@ -54,7 +54,7 @@
 
 name                   | format         |中文解释
 ----                   |------          |----
-setDrawByTouch         | boolean  	|触摸显示的字母园的y轴中心点与手指触摸相同
+setDrawByTouch         | boolean  	|触摸显示的字母圆的y轴中心点与手指触摸相同
 setCircleRadius        | float    	|触摸显示的字母圆的半径
 setCircleDuration      | integer   	|触摸显示的字母圆显示时间
 setCircleColor         | integer	|圆的颜色
