@@ -61,17 +61,20 @@ setIndexBarWidth       | integer 	  |字母导航栏的宽度
 setDrawByTouch         | boolean  	|触摸显示的字母园的y轴中心点与手指触摸相同
 setIndexBarHeightRatio | float      |字母导航栏高度相对父高度占比
 getIndexBar	           |            |获取字母导航栏
+
 <br/>
 
 #### indexBar
+
 indexBar可以通过indexLayout.getIndexBar()获取.
+
 name                   | format               |中文解释
 ----                   |------                |----
 setIndexsList          | List<String>         |初始化字母导航栏
 setIndexChangeListener | indexChangeListener  |设置字母改变监听事件
-setIndexTextSize       | integer	            |字母文字大小
-setSelTextColor        | integer 	            |字母文字选中颜色
-setNorTextColor        | boolean  	          |字母文字未选中颜色
+setIndexTextSize       | integer	      |字母文字大小
+setSelTextColor        | integer 	      |字母文字选中颜色
+setNorTextColor        | boolean  	      |字母文字未选中颜色
 
 ####  License
 ---
