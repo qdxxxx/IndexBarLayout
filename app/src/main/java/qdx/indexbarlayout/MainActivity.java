@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         indexLayout.setIndexBarHeightRatio(0.9f);
+        indexLayout.setDrawByTouch(true);
         indexLayout.getIndexBar().setIndexsList(heads);
         indexLayout.getIndexBar().setIndexChangeListener(new IndexBar.indexChangeListener() {
             @Override

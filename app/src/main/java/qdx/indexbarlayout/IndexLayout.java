@@ -137,8 +137,8 @@ public class IndexLayout extends FrameLayout {
         if (isShowCircle) {
 
             if (isDrawByTouch) {
-                canvas.drawCircle(getWidth() / 2, touchYpivot, circleRadius, mPaint);
-                canvas.drawText(indexName, getWidth() / 2, touchYpivot + yAxis, mTxtPaint);
+                canvas.drawCircle(getWidth() / 2, touchYpivot + getHeight() * (1 - indexBarHeightRatio) / 2, circleRadius, mPaint);
+                canvas.drawText(indexName, getWidth() / 2, touchYpivot + yAxis + getHeight() * (1 - indexBarHeightRatio) / 2, mTxtPaint);
             } else {
                 canvas.drawCircle(getWidth() / 2, getHeight() / 2, circleRadius, mPaint);
                 canvas.drawText(indexName, getWidth() / 2, getHeight() / 2 + yAxis, mTxtPaint);
