@@ -37,7 +37,7 @@
 
  - index字母改变的事件通知
  ```
-        indexLayout.getIndexBar().setIndexChangeListener(new IndexBar.indexChangeListener() {
+        indexLayout.getIndexBar().setIndexChangeListener(new IndexBar.IndexChangeListener() {
             @Override
             public void indexChanged(String indexName) {
             }
@@ -52,15 +52,15 @@
 
 #### indexLayout
 
-name                   | format     |中文解释
-----                   |------      |----
-setCircleRadius        | float    	|触摸显示的字母圆的半径
-setCircleDuration      | integer   	|触摸显示的字母圆显示事件
-setCircleColor         | integer	  |圆的颜色
-setIndexBarWidth       | integer 	  |字母导航栏的宽度
+name                   | format         |中文解释
+----                   |------          |----
 setDrawByTouch         | boolean  	|触摸显示的字母园的y轴中心点与手指触摸相同
-setIndexBarHeightRatio | float      |字母导航栏高度相对父高度占比
-getIndexBar	           |            |获取字母导航栏
+setCircleRadius        | float    	|触摸显示的字母圆的半径
+setCircleDuration      | integer   	|触摸显示的字母圆显示时间
+setCircleColor         | integer	|圆的颜色
+setIndexBarWidth       | integer 	|字母导航栏的宽度
+setIndexBarHeightRatio | float          |字母导航栏高度相对父高度占比
+getIndexBar	       |                |获取字母导航栏
 
 <br/>
 
@@ -70,11 +70,11 @@ indexBar可以通过indexLayout.getIndexBar()获取.
 
 name                   | format               |中文解释
 ----                   |------                |----
-setIndexsList          | List<String>         |初始化字母导航栏
-setIndexChangeListener | indexChangeListener  |设置字母改变监听事件
+setIndexsList          | List                 |初始化字母导航栏
+setIndexChangeListener | IndexChangeListener  |设置字母改变监听事件
 setIndexTextSize       | integer	      |字母文字大小
 setSelTextColor        | integer 	      |字母文字选中颜色
-setNorTextColor        | boolean  	      |字母文字未选中颜色
+setNorTextColor        | integer  	      |字母文字未选中颜色
 
 ####  License
 ---
