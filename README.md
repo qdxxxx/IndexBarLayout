@@ -1,6 +1,9 @@
 # IndexBarLayout
 类似手机联系人最右侧的字母导航栏.
+
 拼音提取首字母可以参考使用[https://github.com/promeG/TinyPinyin]( https://github.com/promeG/TinyPinyin)
+
+悬浮头部效果和头部分层，参考使用[StickyHeaderDecoration]( https://github.com/qdxxxx/StickyHeaderDecoration)
 <br/>
  ![image](https://github.com/qdxxxx/IndexBarLayout/blob/master/appGif/GIF.gif)
  
