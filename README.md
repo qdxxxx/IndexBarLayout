@@ -48,7 +48,13 @@
         });
  ```
  
-
+#### Layout
+```
+<qdx.indexbarlayout.IndexLayout
+        android:id="@+id/index_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+```
 
  
 ### 方法及属性介绍
