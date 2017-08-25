@@ -49,20 +49,28 @@ public class IndexBar extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        textSpan = h / (indexsList.size() + 1);
+        if (indexsList != null && indexsList.size() > 0) {
+            textSpan = h / (indexsList.size() + 1);
+        }
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        for (int i = 0; i < indexsList.size(); i++) {
-            canvas.drawText(indexsList.get(i), getWidth() / 2, textSpan * (i + 1) + yAxis, mPaint);
+        if (indexsList != null && indexsList.size() > 0) {
+            for (int i = 0; i < indexsList.size(); i++) {
+                canvas.drawText(indexsList.get(i), getWidth() / 2, textSpan * (i + 1) + yAxis, mPaint);
+            }
         }
+
     }
 
     private int curPos = -1;
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        if (indexsList == null || indexsList.size() == 0) {
+            return false;
+        }
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mPaint.setColor(selTextColor);
@@ -97,6 +105,7 @@ public class IndexBar extends View {
 
     public void setIndexsList(List<String> indexs) {
         this.indexsList = indexs;
+        requestLayout();
     }
 
     public void setIndexChangeListener(IndexChangeListener listener) {
