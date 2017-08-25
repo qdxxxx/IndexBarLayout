@@ -1,4 +1,7 @@
 # IndexBarLayout
+
+[![](https://www.jitpack.io/v/qdxxxx/IndexBarLayout.svg)](https://www.jitpack.io/#qdxxxx/IndexBarLayout)
+
 类似手机联系人最右侧的字母导航栏.
 
 拼音提取首字母可以参考使用[https://github.com/promeG/TinyPinyin]( https://github.com/promeG/TinyPinyin)
