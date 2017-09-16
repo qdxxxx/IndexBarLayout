@@ -1,6 +1,7 @@
 # IndexBarLayout
 
 [![](https://www.jitpack.io/v/qdxxxx/IndexBarLayout.svg)](https://www.jitpack.io/#qdxxxx/IndexBarLayout)
+[![](https://badge.juejin.im/entry/598c6fe66fb9a03c3223bd5b/likes.svg?style=flat)](https://juejin.im/user/57028e8f2e958a0059237a6b)
 
 类似手机联系人最右侧的字母导航栏.
 
