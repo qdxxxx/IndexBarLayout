@@ -24,6 +24,8 @@ public class IndexLayout extends FrameLayout {
     private Paint mTxtPaint;    //绘制文字
     private float circleRadius = 100;
     private int circleColor = 0xaaa1a3a6;
+    private int circleTextColor = Color.WHITE; //绘制圆内文字颜色
+    private int cirCleTextSize = 80;
 
     private float yAxis;//文字y轴方向的基线
     private float touchYpivot;
@@ -54,8 +56,8 @@ public class IndexLayout extends FrameLayout {
 
         mTxtPaint = new Paint();
         mTxtPaint.setAntiAlias(true);
-        mTxtPaint.setTextSize(80);
-        mTxtPaint.setColor(Color.WHITE);
+        mTxtPaint.setTextSize(cirCleTextSize);
+        mTxtPaint.setColor(circleTextColor);
         mTxtPaint.setTextAlign(Paint.Align.CENTER);
         Paint.FontMetrics fontMetrics = mTxtPaint.getFontMetrics();
         float total = -fontMetrics.ascent + fontMetrics.descent;
@@ -147,7 +149,7 @@ public class IndexLayout extends FrameLayout {
         }
     }
 
-    private int duration = 1500;
+    private int duration = 1000;
     private int WHAT_DISMISS = 0x101;
     private Handler mHandler = new Handler() {
         @Override
@@ -179,9 +181,36 @@ public class IndexLayout extends FrameLayout {
         this.duration = duration;
     }
 
+    /**
+     * 设置圆的颜色
+     *
+     * @param circleColor
+     */
     public void setCircleColor(int circleColor) {
         this.circleColor = circleColor;
         mPaint.setColor(circleColor);
+    }
+
+    /**
+     * 设置圆内文字颜色
+     *
+     * @param textColor
+     */
+    public void setCircleTextColor(int textColor) {
+        this.circleTextColor = textColor;
+        mTxtPaint.setColor(circleTextColor);
+    }
+
+    /**
+     * 设置圆内文字字体大小
+     */
+    public void setCirCleTextSize(int cirCleTextSize) {
+        this.cirCleTextSize = cirCleTextSize;
+        mTxtPaint.setTextSize(cirCleTextSize);
+
+        Paint.FontMetrics fontMetrics = mTxtPaint.getFontMetrics();
+        float total = -fontMetrics.ascent + fontMetrics.descent;
+        yAxis = total / 2 - fontMetrics.descent;
     }
 
     public void setIndexBarWidth(int width) {

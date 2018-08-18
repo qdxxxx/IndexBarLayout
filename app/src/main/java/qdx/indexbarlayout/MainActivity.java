@@ -1,6 +1,8 @@
 package qdx.indexbarlayout;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -64,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
         }
         indexLayout.setIndexBarHeightRatio(0.9f);
         indexLayout.getIndexBar().setIndexsList(heads);
+        indexLayout.setCircleTextColor(Color.RED);
+        indexLayout.setCircleRadius(200);
+        indexLayout.setCirCleTextSize(150);
+        indexLayout.setCircleColor(ContextCompat.getColor(this, R.color.circle_bg));
         indexLayout.getIndexBar().setIndexChangeListener(new IndexBar.IndexChangeListener() {
             @Override
             public void indexChanged(String indexName) {
